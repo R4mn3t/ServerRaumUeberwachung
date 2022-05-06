@@ -1,23 +1,23 @@
 <?php
 
 require_once('Tinkerforge/IPConnection.php');
-require_once('Tinkerforge/BrickletPiezoSpeakerV2.php');
+require_once('Tinkerforge/BrickletRGBLEDButton.php');
 
 use Tinkerforge\IPConnection;
-use Tinkerforge\BrickletPiezoSpeakerV2;
+use Tinkerforge\BrickletRGBLEDButton;
 
 const HOST = '172.20.10.37';
 const PORT = 4223;
-const UID = 'R7M'; // Change XYZ to the UID of your Piezo Speaker Bricklet 2.0
+const UID = 'XBe'; // Change XYZ to the UID of your RGB LED Button Bricklet
 
 $ipcon = new IPConnection(); // Create IP connection
-$ps = new BrickletPiezoSpeakerV2(UID, $ipcon); // Create device object
+$rlb = new BrickletRGBLEDButton(UID, $ipcon); // Create device object
 
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// 10 seconds of loud annoying fast alarm
-$ps->setAlarm(800, 2000, 10, 1, 10, 10000);
+// Set light blue color
+$rlb->setColor(0, 170, 234);
 
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));
