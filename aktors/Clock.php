@@ -6,7 +6,7 @@ require_once('Tinkerforge/BrickletSegmentDisplay4x7V2.php');
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletSegmentDisplay4x7V2;
 
-const HOST = '172.20.10.37';
+const HOST = '172.20.10.24';
 const PORT = 4223;
 const UID = 'Tre'; // Change XYZ to the UID of your Segment Display 4x7 Bricklet 2.0
 

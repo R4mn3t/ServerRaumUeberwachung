@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ServerRaumÜberwachung.iml" filepath="$PROJECT_DIR$/.idea/ServerRaumÜberwachung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ServerRaumUeberwachung.iml" filepath="$PROJECT_DIR$/.idea/ServerRaumUeberwachung.iml" />
     </modules>
   </component>
 </project>
