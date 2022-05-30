@@ -1,12 +1,15 @@
-<?php
+<?php require_once("../header.html"); ?>
 
+    <h1>Brightness</h1>
+
+<?php
 require_once('Tinkerforge/IPConnection.php');
 require_once('Tinkerforge/BrickletAmbientLightV3.php');
 
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletAmbientLightV3;
 
-const HOST = '172.20.10.37';
+require_once("ip.php");
 const PORT = 4223;
 const UID = 'Pdw'; // Change XYZ to the UID of your Ambient Light Bricklet 3.0
 

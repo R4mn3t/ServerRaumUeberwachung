@@ -1,12 +1,15 @@
-<?php
+<?php require_once("../header.html"); ?>
 
+    <h1>Speaker</h1>
+
+<?php
 require_once('Tinkerforge/IPConnection.php');
 require_once('Tinkerforge/BrickletPiezoSpeakerV2.php');
 
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletPiezoSpeakerV2;
 
-const HOST = '172.20.10.37';
+require_once("ip.php");
 const PORT = 4223;
 const UID = 'R7M'; // Change XYZ to the UID of your Piezo Speaker Bricklet 2.0
 

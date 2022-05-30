@@ -38,14 +38,15 @@
 <header>
     <h1>Serverraum Überwachung</h1>
 </header>
+
 <div class="dropdown">
     <button>Aktoren</button>
     <div class="dropdown-content">
-        <a href="aktors/Button-A.php">Button</a>
-        <a href="aktors/Clock.php">Clock</a>
-        <a href="aktors/Display.php">Display</a>
-        <a href="aktors/Motion-A.php">Motion</a>
-        <a href="aktors/Speaker.php">Speaker</a>
+        <a href="actors/Button-A.php">Button</a>
+        <a href="actors/Clock.php">Clock</a>
+        <a href="actors/Display.php">Display</a>
+        <a href="actors/Motion-A.php">Motion</a>
+        <a href="actors/Speaker.php">Speaker</a>
     </div>
 </div>
 

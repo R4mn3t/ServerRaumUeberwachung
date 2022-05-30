@@ -1,12 +1,15 @@
-<?php
+<?php require_once("../header.html"); ?>
 
+    <h1>Humidity</h1>
+
+<?php
 require_once('Tinkerforge/IPConnection.php');
 require_once('Tinkerforge/BrickletHumidityV2.php');
 
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletHumidityV2;
 
-const HOST = '172.20.10.37';
+require_once("ip.php");
 const PORT = 4223;
 const UID = 'ViW'; // Change XYZ to the UID of your Humidity Bricklet 2.0
 

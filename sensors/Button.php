@@ -1,12 +1,15 @@
-<?php
+<?php require_once("../header.html"); ?>
 
+    <h1>Button</h1>
+
+<?php
 require_once('Tinkerforge/IPConnection.php');
 require_once('Tinkerforge/BrickletRGBLEDButton.php');
 
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletRGBLEDButton;
 
-const HOST = '172.20.10.37';
+require_once("ip.php");
 const PORT = 4223;
 const UID = 'XBe'; // Change XYZ to the UID of your RGB LED Button Bricklet
 
