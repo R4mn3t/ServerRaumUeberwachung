@@ -1,15 +1,34 @@
-<?php require_once("../header.html"); ?>
-
-    <h1>Brightness</h1>
-
 <?php
-require_once('Tinkerforge/IPConnection.php');
-require_once('Tinkerforge/BrickletAmbientLightV3.php');
-
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletAmbientLightV3;
+include "../header.html";
+include "../sidebar.html";
+?>
+<title>Brightness</title>
 
-require_once("ip.php");
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard"></span>
+            </div>
+        </nav>
+
+        <div class="home-content">
+
+            <div class="boxes">
+                <div class="overview box">
+                    <div class="title">Brightness</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php
+include_once('Tinkerforge/IPConnection.php');
+include_once('Tinkerforge/BrickletAmbientLightV3.php');
+
+include_once("ip.php");
 const PORT = 4223;
 const UID = 'Pdw'; // Change XYZ to the UID of your Ambient Light Bricklet 3.0
 
@@ -26,3 +45,5 @@ echo "Illuminance: " . $illuminance/100.0 . " lx\n";
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));
 $ipcon->disconnect();
+
+include "../footer.html";

@@ -1,15 +1,34 @@
-<?php require_once("../header.html"); ?>
-
-    <h1>Temperature</h1>
-
 <?php
-require_once('Tinkerforge/IPConnection.php');
-require_once('Tinkerforge/BrickletPTCV2.php');
-
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletPTCV2;
+include "../header.html";
+include "../sidebar.html";
+?>
+<title>Temperature</title>
 
-require_once("ip.php");
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard"></span>
+            </div>
+        </nav>
+
+        <div class="home-content">
+
+            <div class="boxes">
+                <div class="overview box">
+                    <div class="title">Temperature</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php
+include_once('Tinkerforge/IPConnection.php');
+include_once('Tinkerforge/BrickletPTCV2.php');
+
+include_once("ip.php");
 const PORT = 4223;
 const UID = 'Wcg'; // Change XYZ to the UID of your PTC Bricklet 2.0
 
@@ -35,3 +54,5 @@ $ptc->setTemperatureCallbackConfiguration(1000, FALSE, 'x', 0, 0);
 
 echo "Press ctrl+c to exit\n";
 $ipcon->dispatchCallbacks(-1); // Dispatch callbacks forever
+
+include "../footer.html";

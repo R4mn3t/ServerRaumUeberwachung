@@ -1,15 +1,34 @@
-<?php require_once("../header.html"); ?>
-
-    <h1>Motion</h1>
-
 <?php
-require_once('Tinkerforge/IPConnection.php');
-require_once('Tinkerforge/BrickletMotionDetectorV2.php');
-
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletMotionDetectorV2;
+include "../header.html";
+include "../sidebar.html";
+?>
+<title>Motion Detection</title>
 
-require_once("ip.php");
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard"></span>
+            </div>
+        </nav>
+
+        <div class="home-content">
+
+            <div class="boxes">
+                <div class="overview box">
+                    <div class="title">Motion Detection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php
+include_once('Tinkerforge/IPConnection.php');
+include_once('Tinkerforge/BrickletMotionDetectorV2.php');
+
+include_once("ip.php");
 const PORT = 4223;
 const UID = 'ML4'; // Change XYZ to the UID of your Motion Detector Bricklet 2.0
 
@@ -39,5 +58,14 @@ $md->registerCallback(BrickletMotionDetectorV2::CALLBACK_MOTION_DETECTED,
 $md->registerCallback(BrickletMotionDetectorV2::CALLBACK_DETECTION_CYCLE_ENDED,
     'cb_detectionCycleEnded');
 
+// Turn blue backlight LEDs on (maximum brightness)
+$md->setIndicator(255, 255, 255);
+
+echo "Press key to exit\n";
+fgetc(fopen('php://stdin', 'r'));
+$ipcon->disconnect();
+
 echo "Press ctrl+c to exit\n";
 $ipcon->dispatchCallbacks(-1); // Dispatch callbacks forever
+
+include "../footer.html";

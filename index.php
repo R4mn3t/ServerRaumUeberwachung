@@ -42,7 +42,6 @@
 <div class="dropdown">
     <button>Aktoren</button>
     <div class="dropdown-content">
-        <a href="actors/Button-A.php">Button</a>
         <a href="actors/Clock.php">Clock</a>
         <a href="actors/Display.php">Display</a>
         <a href="actors/Motion-A.php">Motion</a>

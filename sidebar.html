@@ -1,0 +1,61 @@
+<div class="sidebar">
+    <div class="logo-details" style="margin-left: 30px">
+        <a href="../index1.php">
+            <span class="logo_name">Serverraum Überwachung</span>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="../sensors/Button.php">
+                <span class="links_name" style="margin-left: 30px">Button</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Brightness.php">
+                <span class="links_name" style="margin-left: 30px">Brightness</span>
+            </a>
+        </li>
+        <li>
+            <a href="../actors/Clock.php">
+                <span class="links_name" style="margin-left: 30px">Clock</span>
+            </a>
+        </li>
+        <li>
+            <a href="../actors/Display.php">
+                <span class="links_name" style="margin-left: 30px">Display</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Humidity.php">
+                <span class="links_name" style="margin-left: 30px">Humidity</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Motion.php">
+                <span class="links_name" style="margin-left: 30px">Motion Detection</span>
+            </a>
+        </li>
+        <li>
+            <a href="../actors/Speaker.php">
+                <span class="links_name" style="margin-left: 30px">Speaker</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Temperature.php">
+                <span class="links_name" style="margin-left: 30px">Temperature</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+</script>

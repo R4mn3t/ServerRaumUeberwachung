@@ -1,21 +1,39 @@
-<?php require_once("../header.html"); ?>
+<?php
+use Tinkerforge\IPConnection;
+use Tinkerforge\BrickletEPaper296x128;
+include "../header.html";
+include "../sidebar.html";
+?>
+<title>Display</title>
 
-    <h1>Display</h1>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard"></span>
+            </div>
+        </nav>
+
+        <div class="home-content">
+
+            <div class="boxes">
+                <div class="overview box">
+                    <div class="title">Display</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <?php
-
 if (!extension_loaded('gd')) {
     echo "Required gd extension is not available\n";
     exit;
 }
 
-require_once('Tinkerforge/IPConnection.php');
-require_once('Tinkerforge/BrickletEPaper296x128.php');
+include_once('Tinkerforge/IPConnection.php');
+include_once('Tinkerforge/BrickletEPaper296x128.php');
 
-use Tinkerforge\IPConnection;
-use Tinkerforge\BrickletEPaper296x128;
-
-require_once("ip.php");
+include_once("ip.php");
 const PORT = 4223;
 const UID = 'XGL'; // Change XYZ to the UID of your E-Paper 296x128 Bricklet
 const WIDTH = 296; // Columns
@@ -62,3 +80,5 @@ $epaper->writeColor(0, 0, WIDTH-1, HEIGHT-1, $pixelsRed);
 $epaper->draw();
 
 echo "Press ctrl+c to exit\n";
+
+include "../footer.html";
