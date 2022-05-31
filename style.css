@@ -113,7 +113,7 @@ nav .sidebar-button i{
     font-size: 35px;
     margin-right: 10px;
 }
-.home-section nav .search-box{
+.home-section {
     position: relative;
     height: 50px;
     max-width: 550px;
@@ -130,21 +130,7 @@ nav .search-box input{
     font-size: 18px;
     padding: 0 15px;
 }
-nav .search-box .bx-search{
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    background: #2697FF;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 4px;
-    line-height: 40px;
-    text-align: center;
-    color: #fff;
-    font-size: 22px;
-    transition: all 0.4 ease;
-}
+
 .home-section nav .profile-details{
     display: flex;
     align-items: center;

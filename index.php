@@ -1,63 +1,99 @@
 <!DOCTYPE html>
-<html lang="ger-DE">
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8">
-    <title>Serverraum Überwachung</title>
-    <style>
-        .dropdown {
-            display: inline-block;
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            width: 100%;
-            overflow: auto;
-            box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            display: block;
-            color: #000000;
-            padding: 5px;
-            text-decoration: none;
-        }
-
-        .dropdown-content a:hover {
-            color: #FFFFFF;
-            background-color: #00A4BD;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css?<?php echo time(); ?>">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="./library/KSTL%20Logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header>
-    <h1>Serverraum Überwachung</h1>
-</header>
-
-<div class="dropdown">
-    <button>Aktoren</button>
-    <div class="dropdown-content">
-        <a href="actors/Clock.php">Clock</a>
-        <a href="actors/Display.php">Display</a>
-        <a href="actors/Motion-A.php">Motion</a>
-        <a href="actors/Speaker.php">Speaker</a>
+<div class="sidebar">
+    <div class="logo-details">
+        <span class="logo_name" style="margin-left: 30px">Serverraum Überwachung</span>
     </div>
+    <ul class="nav-links">
+        <li>
+            <a href="./sensors/Button.php">
+                <span class="links_name" style="margin-left: 30px">Button</span>
+            </a>
+        </li>
+        <li>
+            <a href="./sensors/Brightness.php">
+                <span class="links_name" style="margin-left: 30px">Brightness</span>
+            </a>
+        </li>
+        <li>
+            <a href="./actors/Clock.php">
+                <span class="links_name" style="margin-left: 30px">Clock</span>
+            </a>
+        </li>
+        <li>
+            <a href="./actors/Display.php">
+                <span class="links_name" style="margin-left: 30px">Display</span>
+            </a>
+        </li>
+        <li>
+            <a href="./sensors/Humidity.php">
+                <span class="links_name" style="margin-left: 30px">Humidity</span>
+            </a>
+        </li>
+        <li>
+            <a href="./sensors/Motion.php">
+                <span class="links_name" style="margin-left: 30px">Motion Detection</span>
+            </a>
+        </li>
+        <li>
+            <a href="./actors/Speaker.php">
+                <span class="links_name" style="margin-left: 30px">Speaker</span>
+            </a>
+        </li>
+        <li>
+            <a href="./sensors/Temperature.php">
+                <span class="links_name" style="margin-left: 30px">Temperature</span>
+            </a>
+        </li>
+    </ul>
 </div>
 
-<div class="dropdown">
-    <button>Sensoren</button>
-    <div class="dropdown-content">
-        <a href="sensors/Brightness.php">Brightness</a>
-        <a href="sensors/Button.php">Button</a>
-        <a href="sensors/Humidity.php">Humidity</a>
-        <a href="sensors/Motion.php">Motion</a>
-        <a href="sensors/Temperature.php">Temperature</a>
+<section class="home-section">
+    <nav>
+<!--        <div class="sidebar-button">-->
+<!--            <i class='bx bx-menu sidebarBtn'></i>-->
+<!--            <span class="dashboard"></span>-->
+<!--        </div>-->
+    </nav>
+
+    <div class="home-content">
+
+        <div class="boxes">
+            <div class="overview box">
+                <div class="title">Overview</div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+<script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+</script>
+
 </body>
 </html>
+
+<!--Aufgaben-->
+<!--main anpassen-->
+<!--bx bx-menu anpassen (sidebar)-->
+
+<!--https://www.codinglabweb.com/2021/05/admin-dashboard-in-html-css.html-->
