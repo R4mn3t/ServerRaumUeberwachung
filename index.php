@@ -82,6 +82,5 @@
 
 <!--Aufgaben-->
 <!--main anpassen-->
-<!--bx bx-menu anpassen (sidebar)-->
 
 <!--https://www.codinglabweb.com/2021/05/admin-dashboard-in-html-css.html-->
