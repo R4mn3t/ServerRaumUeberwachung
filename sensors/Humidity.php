@@ -19,6 +19,13 @@ use Tinkerforge\NotConnectedException;
             <div class="boxes">
                 <div class="overview box">
                     <div class="title">Humidity</div>
+                    <br>
+                    <p>Current Humidity: </p>
+                    <p>
+                        <?php
+
+                        ?>
+                    </p>
                 </div>
             </div>
         </div>

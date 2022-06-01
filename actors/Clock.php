@@ -19,6 +19,25 @@ use Tinkerforge\NotConnectedException;
             <div class="boxes">
                 <div class="overview box">
                     <div class="title">Clock</div>
+                    <br>
+                    <table>
+                        <tr>
+                            <form method="post">
+                                <td><label for="bright">Brightness: </label></td>
+                                <td><input name="bright" type="number" min="0" max="7"></td>
+                                <td><input type="submit"></td>
+                            </form>
+                        </tr>
+                        <tr>
+                            <?php
+                            if (empty($_POST['bright'])) {
+                                echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . "0" . "</td>";
+                            } else {
+                                echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . $_POST['bright'] . "</td>";
+                            }
+                            ?>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -31,6 +50,8 @@ use Tinkerforge\NotConnectedException;
     <!--</form>-->
 
 <?php
+$bright = $_POST['bright'];
+
 include_once "./Tinkerforge/IPConnection.php";
 include_once "./Tinkerforge/BrickletSegmentDisplay4x7V2.php";
 
@@ -40,13 +61,10 @@ const UID = 'Tre'; // Change XYZ to the UID of your Segment Display 4x7 Bricklet
 $ipcon = new IPConnection(); // Create IP connection
 $sd = new BrickletSegmentDisplay4x7V2(UID, $ipcon); // Create device object
 
-try
-{
-$ipcon->connect(HOST, PORT); // Connect to brickd
-}
-
-catch
-(AlreadyConnectedException | Exception $e) {
+try {
+    $ipcon->connect(HOST, PORT); // Connect to brickd
+} catch
+(AlreadyConnectedException|Exception $e) {
 }
 // Don't use device before ipcon is connected
 

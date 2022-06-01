@@ -18,6 +18,7 @@ use Tinkerforge\BrickletRGBLEDButton;
             <div class="boxes">
                 <div class="overview box">
                     <div class="title">Button</div>
+                    <br>
                 </div>
             </div>
         </div>

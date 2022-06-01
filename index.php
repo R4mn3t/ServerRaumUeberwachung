@@ -62,10 +62,6 @@
 
 <section class="home-section">
     <nav>
-<!--        <div class="sidebar-button">-->
-<!--            <i class='bx bx-menu sidebarBtn'></i>-->
-<!--            <span class="dashboard"></span>-->
-<!--        </div>-->
     </nav>
 
     <div class="home-content">
@@ -73,6 +69,28 @@
         <div class="boxes">
             <div class="overview box">
                 <div class="title">Overview</div>
+                <br>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Humidity: </div>
+                        <div class="number"><?php ?></div>
+                    </div>
+                </div>
+                <br>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Temperature: </div>
+                        <div class="number"><?php ?></div>
+                    </div>
+                </div>
+                <br>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Motion Detection: </div>
+                        <div class="number"><?php ?></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

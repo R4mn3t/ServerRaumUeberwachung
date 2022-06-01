@@ -8,25 +8,32 @@ use Tinkerforge\BrickletAmbientLightV3;
 use Tinkerforge\NotConnectedException;
 
 ?>
-    <title>Brightness</title>
+<title>Brightness</title>
 
-    <section class="home-section">
-        <nav>
-        </nav>
+<section class="home-section">
+    <nav>
+    </nav>
 
-        <div class="home-content">
+    <div class="home-content">
 
-            <div class="boxes">
-                <div class="overview box">
-                    <div class="title">Brightness</div>
-                </div>
+        <div class="boxes">
+            <div class="overview box">
+                <div class="title">Brightness</div>
+                <br>
+                <p>Current Brightness:</p>
+                <p>
+                    <?php
+
+                    ?>
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <?php
-include_once('Tinkerforge/IPConnection.php');
-include_once('Tinkerforge/BrickletAmbientLightV3.php');
+require_once('Tinkerforge/IPConnection.php');
+require_once('Tinkerforge/BrickletAmbientLightV3.php');
 
 include_once("ipPort.php");
 const UID = 'Pdw'; // Change XYZ to the UID of your Ambient Light Bricklet 3.0
@@ -50,3 +57,5 @@ try {
     $ipcon->disconnect();
 } catch (NotConnectedException $e) {
 }
+?>
+

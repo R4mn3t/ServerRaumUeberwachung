@@ -18,6 +18,13 @@ use Tinkerforge\BrickletPTCV2;
             <div class="boxes">
                 <div class="overview box">
                     <div class="title">Temperature</div>
+                    <br>
+                    <p>Current Temperature: </p>
+                    <p>
+                        <?php
+
+                        ?>
+                    </p>
                 </div>
             </div>
         </div>

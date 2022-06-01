@@ -18,6 +18,11 @@ use Tinkerforge\BrickletEPaper296x128;
             <div class="boxes">
                 <div class="overview box">
                     <div class="title">Display</div>
+                    <br>
+                    <form action="#">
+                        <input type="file" id="paper-image" name="image-name">
+                        <input type="submit">
+                    </form>
                 </div>
             </div>
         </div>

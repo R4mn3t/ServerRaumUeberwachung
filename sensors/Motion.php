@@ -19,6 +19,27 @@ use Tinkerforge\NotConnectedException;
             <div class="boxes">
                 <div class="overview box">
                     <div class="title">Motion Detection</div>
+                    <br>
+                    <p>Light Setting:</p>
+                    <table>
+                        <form method="post">
+                            <tr>
+                                <td><label for="top-left">Top Left: </label>
+                                    <input name="top-left" type="number" min="0" max="255"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="top-left">Top Right: </label>
+                                    <input name="top-right" type="number" min="0" max="255"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="top-left">Bottom: </label>
+                                    <input name="bottom" type="number" min="0" max="255"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit"></td>
+                            </tr>
+                        </form>
+                    </table>
                 </div>
             </div>
         </div>
@@ -67,7 +88,7 @@ try {
 }
 
 // Turn blue backlight LEDs on (maximum brightness)
-$md->setIndicator(255, 255, 255);
+$md->setIndicator($_POST['top-left'], $_POST['top-right'], $_POST['bottom']);
 
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));
