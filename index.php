@@ -97,8 +97,3 @@
 </section>
 </body>
 </html>
-
-<!--Aufgaben-->
-<!--main anpassen-->
-
-<!--https://www.codinglabweb.com/2021/05/admin-dashboard-in-html-css.html-->
