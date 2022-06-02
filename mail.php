@@ -37,7 +37,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'TEST';
-    $mail->Body    = 'Diesmal klappt es! <b>Ganz sicher!</b>';
+    $mail->Body    = 'Hallo Test';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
