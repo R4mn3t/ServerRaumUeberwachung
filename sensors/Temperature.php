@@ -1,6 +1,66 @@
+<!DOCTYPE html>
+<html lang="ger-DE">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+    <link rel="stylesheet" href="../style.css?<?php echo time(); ?>">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="../library/KSTL%20Logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo-details" style="margin-left: 30px">
+        <a href="../index.php">
+            <span class="logo_name">Serverraum Überwachung</span>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="../sensors/Button.php">
+                <span class="links_name" style="margin-left: 30px">Button</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Brightness.php">
+                <span class="links_name" style="margin-left: 30px">Brightness</span>
+            </a>
+        </li>
+        <li>
+            <a href="../actors/Clock.php">
+                <span class="links_name" style="margin-left: 30px">Clock</span>
+            </a>
+        </li>
+        <li>
+            <a href="../actors/Display.php">
+                <span class="links_name" style="margin-left: 30px">Display</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Humidity.php">
+                <span class="links_name" style="margin-left: 30px">Humidity</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Motion.php">
+                <span class="links_name" style="margin-left: 30px">Motion Detection</span>
+            </a>
+        </li>
+        <li>
+            <a href="../actors/Speaker.php">
+                <span class="links_name" style="margin-left: 30px">Speaker</span>
+            </a>
+        </li>
+        <li>
+            <a href="../sensors/Temperature.php" class="active">
+                <span class="links_name" style="margin-left: 30px">Temperature</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
 <?php
-require_once "../header.php";
-require_once "../sidebar.html";
 
 use Tinkerforge\AlreadyConnectedException;
 use Tinkerforge\IPConnection;
@@ -29,8 +89,11 @@ try {
 } catch (AlreadyConnectedException|Exception $e) {
 }
 
+// Check connection
 if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
     $ptc = new BrickletPTCV2(UID, $ipcon); // Create device object
+} else {
+    echo "Device not connected!";
 }
 // Don't use device before ipcon is connected
 
@@ -45,6 +108,8 @@ try {
 // Set period for temperature callback to 1s (1000ms) without a threshold
 if (!is_null($ptc)) {
     $ptc->setTemperatureCallbackConfiguration(1000, FALSE, 'x', 0, 0);
+} else {
+    echo "Device not connected!";
 }
 
 if (!is_null($ptc)) {
@@ -67,13 +132,15 @@ if (!is_null($ptc)) {
                 <p>Current Temperature: </p>
                 <p>
                     <?php
-                        echo $temperature;
+                    echo $temperature;
                     ?>
                 </p>
             </div>
         </div>
     </div>
 </section>
+</body>
+</html>
 
 <?php
 echo "Press ctrl+c to exit\n";

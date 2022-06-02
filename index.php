@@ -4,9 +4,7 @@
 <head>
     <title>Serverraum Überwachung</title>
     <meta charset="UTF-8">
-    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
     <link rel="stylesheet" href="style.css?<?php echo time(); ?>">
-    <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="./library/KSTL%20Logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,6 +58,13 @@
     </ul>
 </div>
 
+<?php
+
+$humidity = require_once ("./sensors/Humidity.php");
+require_once ("./sensors/Temperature.php");
+require_once ("./sensors/Motion.php");
+
+?>
 <section class="home-section">
     <nav>
     </nav>
@@ -73,7 +78,7 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Humidity: </div>
-                        <div class="number"><?php ?></div>
+                        <div class="number"><?php echo $humidity;?></div>
                     </div>
                 </div>
                 <br>
@@ -95,5 +100,12 @@
         </div>
     </div>
 </section>
+<script>
+    window.setInterval('refresh()', 10000);
+
+    function refresh() {
+        window.location.reload();
+    }
+</script>
 </body>
 </html>
