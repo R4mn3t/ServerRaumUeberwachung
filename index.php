@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
 <head>
     <title>Serverraum Überwachung</title>
@@ -59,6 +58,8 @@
 </div>
 
 <?php
+
+use sensors\Humidity;
 
 $humidity = require_once ("./sensors/Humidity.php");
 require_once ("./sensors/Temperature.php");

@@ -129,12 +129,7 @@ if (!is_null($ptc)) {
             <div class="overview box">
                 <div class="title">Temperature</div>
                 <br>
-                <p>Current Temperature: </p>
-                <p>
-                    <?php
-                    echo $temperature;
-                    ?>
-                </p>
+                <p>Current Temperature: <?php echo $temperature / 100.0 . "°C"; ?></p>
             </div>
         </div>
     </div>
