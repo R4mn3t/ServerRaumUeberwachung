@@ -19,6 +19,24 @@ use Tinkerforge\BrickletRGBLEDButton;
                 <div class="overview box">
                     <div class="title">Button</div>
                     <br>
+                    <table>
+                        <tr>
+                            <form method="post">
+                                <td><label for="color">Color: </label></td>
+                                <td><input type="number" min="0" max="255" name="color"></td>
+                                <td><input type="submit"></td>
+                            </form>
+                        </tr>
+                        <tr>
+                            <?php
+                            if (empty($_POST['color'])) {
+                                echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . 0 . "</td>";
+                            } else {
+                                echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . $_POST['color'] . "</td>";
+                            }
+                            ?>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
