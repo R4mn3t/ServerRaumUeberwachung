@@ -15,42 +15,42 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href="./sensors/Button.php">
+            <a href="./sensors/button/button-html.php">
                 <span class="links_name" style="margin-left: 30px">Button</span>
             </a>
         </li>
         <li>
-            <a href="./sensors/Brightness.php">
+            <a href="./sensors/brightness/brightness-html.php">
                 <span class="links_name" style="margin-left: 30px">Brightness</span>
             </a>
         </li>
         <li>
-            <a href="./actors/Clock.php">
+            <a href="actors/clock/clock-html.php">
                 <span class="links_name" style="margin-left: 30px">Clock</span>
             </a>
         </li>
         <li>
-            <a href="./actors/Display.php">
+            <a href="./actors/display/display-html.php">
                 <span class="links_name" style="margin-left: 30px">Display</span>
             </a>
         </li>
         <li>
-            <a href="./sensors/Humidity.php">
+            <a href="./sensors/humidity/humidity-html.php">
                 <span class="links_name" style="margin-left: 30px">Humidity</span>
             </a>
         </li>
         <li>
-            <a href="./sensors/Motion.php">
+            <a href="./sensors/motion/motion-html.php">
                 <span class="links_name" style="margin-left: 30px">Motion Detection</span>
             </a>
         </li>
         <li>
-            <a href="./actors/Speaker.php">
+            <a href="./actors/speaker/speaker-html.php">
                 <span class="links_name" style="margin-left: 30px">Speaker</span>
             </a>
         </li>
         <li>
-            <a href="./sensors/Temperature.php">
+            <a href="./sensors/temperature/temperature-html.php">
                 <span class="links_name" style="margin-left: 30px">Temperature</span>
             </a>
         </li>
@@ -61,9 +61,10 @@
 
 use sensors\Humidity;
 
-$humidity = require_once ("./sensors/Humidity.php");
-require_once ("./sensors/Temperature.php");
-require_once ("./sensors/Motion.php");
+//$humidity = require_once ("./sensors/Humidity.php");
+//require_once ("./sensors/Temperature.php");
+//require_once ("./sensors/Motion.php");
+
 
 ?>
 <section class="home-section">
@@ -79,7 +80,7 @@ require_once ("./sensors/Motion.php");
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Humidity: </div>
-                        <div class="number"><?php echo $humidity;?></div>
+                        <div class="number"><?php echo "";?></div>
                     </div>
                 </div>
                 <br>
@@ -110,3 +111,9 @@ require_once ("./sensors/Motion.php");
 </script>
 </body>
 </html>
+
+<!--Aufgaben-->
+<!--In Button.php weiter arbeiten-->
+
+<!--Index anpassen-->
+<!--Automatische Mail bei kritischen Ereignissen erstellen-->

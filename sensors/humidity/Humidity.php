@@ -5,57 +5,57 @@
     <head>
         <meta charset="UTF-8">
         <title>Humidity</title>
-        <link rel="stylesheet" href="../style.css?<?php echo time(); ?>">
+        <link rel="stylesheet" href="../../style.css?<?php echo time(); ?>">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="shortcut icon" href="../library/KSTL%20Logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../../library/KSTL%20Logo.png" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
 
     <div class="sidebar">
         <div class="logo-details" style="margin-left: 30px">
-            <a href="../index.php">
+            <a href="../../index.php">
                 <span class="logo_name">Serverraum Überwachung</span>
             </a>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="../sensors/Button.php">
+                <a href="../button/Button.php">
                     <span class="links_name" style="margin-left: 30px">Button</span>
                 </a>
             </li>
             <li>
-                <a href="../sensors/Brightness.php">
+                <a href="../brightness/Brightness.php">
                     <span class="links_name" style="margin-left: 30px">Brightness</span>
                 </a>
             </li>
             <li>
-                <a href="../actors/Clock.php">
+                <a href="../../actors/clock/Clock.php">
                     <span class="links_name" style="margin-left: 30px">Clock</span>
                 </a>
             </li>
             <li>
-                <a href="../actors/Display.php">
+                <a href="../../actors/display/Display.php">
                     <span class="links_name" style="margin-left: 30px">Display</span>
                 </a>
             </li>
             <li>
-                <a href="../sensors/Humidity.php" class="active">
+                <a href="Humidity.php" class="active">
                     <span class="links_name" style="margin-left: 30px">Humidity</span>
                 </a>
             </li>
             <li>
-                <a href="../sensors/Motion.php">
+                <a href="../motion/Motion.php">
                     <span class="links_name" style="margin-left: 30px">Motion Detection</span>
                 </a>
             </li>
             <li>
-                <a href="../actors/Speaker.php">
+                <a href="../../actors/speaker/Speaker.php">
                     <span class="links_name" style="margin-left: 30px">Speaker</span>
                 </a>
             </li>
             <li>
-                <a href="../sensors/Temperature.php">
+                <a href="../temperature/Temperature.php">
                     <span class="links_name" style="margin-left: 30px">Temperature</span>
                 </a>
             </li>
@@ -95,7 +95,7 @@
     // Get current humidity
     if (!is_null($h)) {
         $humidity = $h->getHumidity();
-        echo "Humidity: " . $humidity / 100.0 . " %RH\n";
+        $humidity = "Humidity: " . $humidity / 100.0 . " %RH\n";
     }
     ?>
 
@@ -109,15 +109,17 @@
                 <div class="overview box">
                     <div class="title">Humidity</div>
                     <br>
-                    <p>Current Humidity: <?php echo $humidity / 100.0 . " %RH"; ?></p>
+                    <p>Current Humidity: <?php echo $humidity; ?></p>
                 </div>
             </div>
         </div>
     </section>
     </body>
     </html>
-
     <?php
+if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
+    return $humidity;
+}
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));
 try {
