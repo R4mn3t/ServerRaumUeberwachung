@@ -76,16 +76,16 @@
                 <table>
                     <form method="post">
                         <tr>
-                            <td><label for="top-left">Top Left: </label>
-                                <input name="top-left" id="top-left" type="number" min="0" max="255"></td>
+                            <td><label for="top-left">Top Left: </label></td>
+                            <td><input name="top-left" id="top-left" type="number" min="0" max="255"></td>
                         </tr>
                         <tr>
-                            <td><label for="top-right">Top Right: </label>
-                                <input name="top-right" id="top-right" type="number" min="0" max="255"></td>
+                            <td><label for="top-right">Top Right: </label></td>
+                            <td><input name="top-right" id="top-right" type="number" min="0" max="255"></td>
                         </tr>
                         <tr>
-                            <td><label for="bottom">Bottom: </label>
-                                <input name="bottom" id="bottom" type="number" min="0" max="255"></td>
+                            <td><label for="bottom">Bottom: </label></td>
+                            <td><input name="bottom" id="bottom" type="number" min="0" max="255"></td>
                         </tr>
                         <tr>
                             <td><input type="submit"></td>

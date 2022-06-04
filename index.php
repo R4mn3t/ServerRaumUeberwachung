@@ -72,19 +72,20 @@
                     <tr></tr>
                     <tr>
                         <td>
-                            <div>Connection State:</div>
+                            <div><b>Connection State:</b></div>
                         </td>
                         <td>
                             <?php
                             include_once("./Tinkerforge/IPConnection.php");
                             include_once("./ipPort.php");
 
+                            use Tinkerforge\AlreadyConnectedException;
                             use Tinkerforge\IPConnection;
 
                             $ipcon = new IPConnection(); // Create IP connection
                             try {
                                 @$ipcon->connect(HOST, PORT);
-                            } catch (\Tinkerforge\AlreadyConnectedException|Exception $e) {
+                            } catch (AlreadyConnectedException|Exception $e) {
                             }
 
                             if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
