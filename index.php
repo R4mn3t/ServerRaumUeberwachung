@@ -25,7 +25,7 @@
             </a>
         </li>
         <li>
-            <a href="actors/clock/clock-html.php">
+            <a href="./actors/clock/clock-html.php">
                 <span class="links_name" style="margin-left: 30px">Clock</span>
             </a>
         </li>
@@ -57,16 +57,6 @@
     </ul>
 </div>
 
-<?php
-
-use sensors\Humidity;
-
-//$humidity = require_once ("./sensors/Humidity.php");
-//require_once ("./sensors/Temperature.php");
-//require_once ("./sensors/Motion.php");
-
-
-?>
 <section class="home-section">
     <nav>
     </nav>
@@ -80,21 +70,21 @@ use sensors\Humidity;
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Humidity: </div>
-                        <div class="number"><?php echo "";?></div>
+                        <div class="number"><?php if (!empty($_SESSION['humidity'])) {echo $_SESSION['humidity'];} ?></div>
                     </div>
                 </div>
                 <br>
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Temperature: </div>
-                        <div class="number"><?php ?></div>
+                        <div class="number"><?php if (!empty($_SESSION['temperature'])) {echo $_SESSION['temperature'];} ?></div>
                     </div>
                 </div>
                 <br>
                 <div class="box">
                     <div class="right-side">
-                        <div class="box-topic">Motion Detection: </div>
-                        <div class="number"><?php ?></div>
+                        <div class="box-topic">Brightness: </div>
+                        <div class="number"><?php if (!empty($_SESSION['illuminance'])) {echo $_SESSION['illuminance'];} ?></div>
                     </div>
                 </div>
 
@@ -113,7 +103,5 @@ use sensors\Humidity;
 </html>
 
 <!--Aufgaben-->
-<!--In Button.php weiter arbeiten-->
-
 <!--Index anpassen-->
 <!--Automatische Mail bei kritischen Ereignissen erstellen-->

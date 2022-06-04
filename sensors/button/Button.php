@@ -1,21 +1,24 @@
 <?php
+session_start();
 
 use Tinkerforge\AlreadyConnectedException;
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletRGBLEDButton;
 
-include_once('../Tinkerforge/IPConnection.php');
-include_once('../Tinkerforge/BrickletRGBLEDButton.php');
+include_once('../../Tinkerforge/IPConnection.php');
+include_once('../../Tinkerforge/BrickletRGBLEDButton.php');
 
-include_once("../ipPort.php");
+include_once("../../ipPort.php");
 const UID = 'XBe'; // Change XYZ to the UID of your RGB LED Button Bricklet
 
 // Callback function for button state changed callback
-function cb_buttonStateChanged($state)
+function cb_buttonStateChanged($state): void
 {
     if ($state == BrickletRGBLEDButton::BUTTON_STATE_PRESSED) {
+        $_SESSION['buttonState'] = true;
         echo "State: Pressed\n";
     } elseif ($state == BrickletRGBLEDButton::BUTTON_STATE_RELEASED) {
+        $_SESSION['buttonState'] = false;
         echo "State: Released\n";
     }
 }
@@ -36,12 +39,13 @@ if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
 }
 // Don't use device before ipcon is connected
 
+// Set light blue color
+$rlb->setColor($_SESSION['red'], $_SESSION['green'], $_SESSION['blue']);
+
 // Register button state changed callback to function cb_buttonStateChanged
 try {
-    if (!is_null($rlb)) {
-        $rlb->registerCallback(BrickletRGBLEDButton::CALLBACK_BUTTON_STATE_CHANGED,
-            'cb_buttonStateChanged');
-    }
+    $rlb->registerCallback(BrickletRGBLEDButton::CALLBACK_BUTTON_STATE_CHANGED,
+        'cb_buttonStateChanged');
 } catch (Exception $e) {
 }
 

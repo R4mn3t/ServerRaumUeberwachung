@@ -5,10 +5,10 @@ use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletAmbientLightV3;
 use Tinkerforge\NotConnectedException;
 
-require_once('../Tinkerforge/IPConnection.php');
-require_once('../Tinkerforge/BrickletAmbientLightV3.php');
+require_once('../../Tinkerforge/IPConnection.php');
+require_once('../../Tinkerforge/BrickletAmbientLightV3.php');
 
-include_once("../ipPort.php");
+include_once("../../ipPort.php");
 const UID = 'Pdw'; // Change XYZ to the UID of your Ambient Light Bricklet 3.0
 
 $ipcon = new IPConnection(); // Create IP connection
@@ -31,8 +31,8 @@ if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
 // Get current Illuminance
 if (!is_null($al)) {
     $illuminance = $al->getIlluminance();
-
-    return "Illuminance: " . $illuminance / 100.0 . " lx\n";
+    $_SESSION['illuminance'] = $illuminance / 100.0;
+    echo "Illuminance: " . $illuminance / 100.0 . " lx\n";
 } else {
     echo "Device not connected!";
 }

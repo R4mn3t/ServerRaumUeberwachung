@@ -70,11 +70,20 @@
             <div class="overview box">
                 <div class="title">Brightness</div>
                 <br>
-                <form action="Brightness.php"></form>
+                <p>Current Brightness: <?php if (!empty($_SESSION['illuminance'])) {
+                        echo $_SESSION['illuminance'] . " lx";
+                    } ?></p>
 
             </div>
         </div>
     </div>
 </section>
+<script>
+    window.setInterval('refresh()', 10000);
+
+    function refresh() {
+        window.location.reload();
+    }
+</script>
 </body>
 </html>

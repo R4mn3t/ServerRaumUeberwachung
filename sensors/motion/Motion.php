@@ -1,126 +1,25 @@
-<!DOCTYPE html>
-<html lang="ger-DE">
-<head>
-    <meta charset="UTF-8">
-    <title>Motion Detection</title>
-    <link rel="stylesheet" href="../../style.css?<?php echo time(); ?>">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="../../library/KSTL%20Logo.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-<div class="sidebar">
-    <div class="logo-details" style="margin-left: 30px">
-        <a href="../../index.php">
-            <span class="logo_name">Serverraum Überwachung</span>
-        </a>
-    </div>
-    <ul class="nav-links">
-        <li>
-            <a href="../button/Button.php">
-                <span class="links_name" style="margin-left: 30px">Button</span>
-            </a>
-        </li>
-        <li>
-            <a href="../brightness/Brightness.php">
-                <span class="links_name" style="margin-left: 30px">Brightness</span>
-            </a>
-        </li>
-        <li>
-            <a href="../../actors/clock/Clock.php">
-                <span class="links_name" style="margin-left: 30px">Clock</span>
-            </a>
-        </li>
-        <li>
-            <a href="../../actors/display/Display.php">
-                <span class="links_name" style="margin-left: 30px">Display</span>
-            </a>
-        </li>
-        <li>
-            <a href="../sensors/Humidity.php">
-                <span class="links_name" style="margin-left: 30px">Humidity</span>
-            </a>
-        </li>
-        <li>
-            <a href="Motion.php" class="active">
-                <span class="links_name" style="margin-left: 30px">Motion Detection</span>
-            </a>
-        </li>
-        <li>
-            <a href="../../actors/speaker/Speaker.php">
-                <span class="links_name" style="margin-left: 30px">Speaker</span>
-            </a>
-        </li>
-        <li>
-            <a href="../temperature/Temperature.php">
-                <span class="links_name" style="margin-left: 30px">Temperature</span>
-            </a>
-        </li>
-    </ul>
-</div>
-
 <?php
+session_start();
 
 use Tinkerforge\AlreadyConnectedException;
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletMotionDetectorV2;
 use Tinkerforge\NotConnectedException;
 
-?>
+include_once('../../Tinkerforge/IPConnection.php');
+include_once('../../Tinkerforge/BrickletMotionDetectorV2.php');
 
-<section class="home-section">
-    <nav>
-    </nav>
-
-    <div class="home-content">
-
-        <div class="boxes">
-            <div class="overview box">
-                <div class="title">Motion Detection</div>
-                <br>
-                <p>Light Setting:</p>
-                <table>
-                    <form method="post">
-                        <tr>
-                            <td><label for="top-left">Top Left: </label>
-                                <input name="top-left" type="number" min="0" max="255"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="top-left">Top Right: </label>
-                                <input name="top-right" type="number" min="0" max="255"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="top-left">Bottom: </label>
-                                <input name="bottom" type="number" min="0" max="255"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit"></td>
-                        </tr>
-                    </form>
-                </table>
-            </div>
-        </div>
-    </div>
-</section>
-</body>
-</html>
-
-<?php
-include_once('../Tinkerforge/IPConnection.php');
-include_once('../Tinkerforge/BrickletMotionDetectorV2.php');
-
-include_once("../ipPort.php");
+include_once("../../ipPort.php");
 const UID = 'ML4'; // Change XYZ to the UID of your Motion Detector Bricklet 2.0
 
 // Callback function for motion detected callback
-function cb_motionDetected()
+function cb_motionDetected(): void
 {
     echo "Motion Detected\n";
 }
 
 // Callback function for detection cycle ended callback
-function cb_detectionCycleEnded()
+function cb_detectionCycleEnded(): void
 {
     echo "Detection Cycle Ended (next detection possible in ~2 seconds)\n";
 }
@@ -161,7 +60,7 @@ try {
 
 // Turn blue backlight LEDs on (maximum brightness)
 if (!is_null($md)) {
-    $md->setIndicator($_POST['top-left'], $_POST['top-right'], $_POST['bottom']);
+    $md->setIndicator($_SESSION['top-left'], $_SESSION['top-right'], $_SESSION['bottom']);
 }
 
 echo "Press key to exit\n";

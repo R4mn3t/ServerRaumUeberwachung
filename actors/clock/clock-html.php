@@ -74,21 +74,19 @@
                 <br>
                 <table>
                     <tr>
-                        <form method="post" action="Clock.php">
+                        <form method="post">
                             <td><label for="bright">Brightness: </label></td>
-                            <td><input name="bright" type="number" min="0" max="7"></td>
+                            <td><input name="bright" type="number" min="0" max="7" id="bright"></td>
                             <td><input type="submit"></td>
                         </form>
                     </tr>
                     <tr>
                         <?php
-                        if (empty($_POST['bright'])) {
-                            echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . "0" . "</td>";
-                        } else {
-                            $bright = $_POST['bright'];
-                            $_SESSION['bright'] = $bright;
-                            echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . $_SESSION['bright'] . "</td>";
+                        if (!empty($_POST['bright'])) {
+                            $_SESSION['bright'] = $_POST['bright'];
                         }
+
+                        echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . $_SESSION['bright'] . "</td>";
                         ?>
                     </tr>
                 </table>

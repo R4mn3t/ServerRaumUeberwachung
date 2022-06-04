@@ -76,19 +76,17 @@
                     <tr>
                         <form method="post">
                             <td><label for="volume">Volume: </label></td>
-                            <td><input name="volume" type="number" min="1" max="10"></td>
+                            <td><input name="volume"  id="volume" type="number" min="1" max="10"></td>
                             <td><input type="submit"></td>
                         </form>
                     </tr>
                     <tr>
                         <?php
-                        if (empty($_POST['volume'])) {
-                            echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . 1 . "</td>";
-                        } else {
-                            $volume = $_POST['volume'];
-                            $_SESSION['volume'] = $volume;
-                            echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . $_SESSION['volume'] . "</td>";
+                        if (!empty($_POST['volume'])) {
+                            $_SESSION['volume'] = $_POST['volume'];
                         }
+
+                        echo "<td>" . "Last Input: " . "</td><td style='text-align: center'>" . $_SESSION['volume'] . "</td>";
                         ?>
                     </tr>
                 </table>

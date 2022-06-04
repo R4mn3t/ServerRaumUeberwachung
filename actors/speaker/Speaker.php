@@ -6,10 +6,10 @@ use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletPiezoSpeakerV2;
 use Tinkerforge\NotConnectedException;
 
-include_once('../Tinkerforge/IPConnection.php');
-include_once('../Tinkerforge/BrickletPiezoSpeakerV2.php');
+include_once('../../Tinkerforge/IPConnection.php');
+include_once('../../Tinkerforge/BrickletPiezoSpeakerV2.php');
 
-include_once("../ipPort.php");
+include_once("../../ipPort.php");
 const UID = 'R7M'; // Change XYZ to the UID of your Piezo Speaker Bricklet 2.0
 
 $ipcon = new IPConnection(); // Create IP connection

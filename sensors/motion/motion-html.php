@@ -4,7 +4,7 @@
 <html lang="ger-DE">
 <head>
     <meta charset="UTF-8">
-    <title>Button</title>
+    <title>Motion Detection</title>
     <link rel="stylesheet" href="../../style.css?<?php echo time(); ?>">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="../../library/KSTL%20Logo.png" type="image/x-icon">
@@ -20,7 +20,7 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href="./button-html.php" class="active">
+            <a href="../button/button-html.php">
                 <span class="links_name" style="margin-left: 30px">Button</span>
             </a>
         </li>
@@ -45,7 +45,7 @@
             </a>
         </li>
         <li>
-            <a href="../motion/motion-html.php">
+            <a href="./motion-html.php" class="active">
                 <span class="links_name" style="margin-left: 30px">Motion Detection</span>
             </a>
         </li>
@@ -70,38 +70,37 @@
 
         <div class="boxes">
             <div class="overview box">
-                <div class="title">Button</div>
+                <div class="title">Motion Detection</div>
                 <br>
+                <p>Light Setting:</p>
                 <table>
-                    <tr>
-                        <form method="post">
-                            <td><label for="red">Red: </label></td>
-                            <td><input type="number" min="0" max="255" name="red" id="red"></td>
-                    </tr>
-
-                    <tr>
-                        <td><label for="green">Green: </label></td>
-                        <td><input type="number" min="0" max="255" name="green" id="green"></td>
-                    </tr>
-
-                    <tr>
-                        <td><label for="blue">Blue: </label></td>
-                        <td><input type="number" min="0" max="255" name="blue" id="blue"></td>
-                    </tr>
-
-                    <tr>
-                        <td><input type="submit"></td>
-                    </tr>
+                    <form method="post">
+                        <tr>
+                            <td><label for="top-left">Top Left: </label>
+                                <input name="top-left" id="top-left" type="number" min="0" max="255"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="top-right">Top Right: </label>
+                                <input name="top-right" id="top-right" type="number" min="0" max="255"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="bottom">Bottom: </label>
+                                <input name="bottom" id="bottom" type="number" min="0" max="255"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit"></td>
+                        </tr>
+                    </form>
                 </table>
                 <br>
                 <table>
                     <?php
-                    if (!empty($_POST['red']) || !empty($_POST['green']) || !empty($_POST['blue'])) {
-                        $_SESSION['red'] = $_POST['red'];
-                        $_SESSION['green'] = $_POST['green'];
-                        $_SESSION['blue'] = $_POST['blue'];
+                    if (!empty($_POST['top-left']) || !empty($_POST['top-right']) || !empty($_POST['bottom'])) {
+                        $_SESSION['top-left'] = $_POST['top-left'];
+                        $_SESSION['top-right'] = $_POST['top-right'];
+                        $_SESSION['bottom'] = $_POST['bottom'];
                     }
-                    echo "<tr><td>" . "Last Input: " . "</td></tr><td style='text-align: center'>" . "Red: " . $_SESSION['red'] . " " . "Green: " . $_SESSION['green'] . " " . "Blue: " . $_SESSION['blue'] . " " . "</td>";
+                    echo "<tr><td>" . "Last Input: " . "</td></tr><td style='text-align: center'>" . "Top Left: " . $_SESSION['top-left'] . " " . "Top Right: " . $_SESSION['top-right'] . " " . "Bottom: " . $_SESSION['bottom'] . " " . "</td>";
                     ?>
                 </table>
             </div>
