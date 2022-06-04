@@ -15,16 +15,6 @@ const UID = 'Tre'; // Change XYZ to the UID of your Segment Display 4x7 Bricklet
 $ipcon = new IPConnection(); // Create IP connection
 $sd = null;
 
-//$one = 0;
-//$two = 0;
-//$three = 0;
-//$four = 0;
-//
-//$_SESSION['one'] = $one;
-//$_SESSION['two'] = $two;
-//$_SESSION['three'] = $three;
-//$_SESSION['four'] = $four;
-
 try {
     $ipcon->connect(HOST, PORT); // Connect to brickd
 } catch
