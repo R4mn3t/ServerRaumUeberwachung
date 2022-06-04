@@ -27,7 +27,7 @@ $ipcon = new IPConnection(); // Create IP connection
 $rlb = null;
 
 try {
-    $ipcon->connect(HOST, PORT); // Connect to brickd
+    $ipcon->connect($_SESSION['ip'], $_SESSION['port']); // Connect to brickd
 } catch (AlreadyConnectedException|Exception $e) {
 }
 

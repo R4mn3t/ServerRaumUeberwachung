@@ -1,3 +1,3 @@
 <?php
-const HOST = '128.222.64.214';
-const PORT = 4223;
+$_SESSION['ip'] = '128.222.64.214';
+$_SESSION['port'] = 4223;

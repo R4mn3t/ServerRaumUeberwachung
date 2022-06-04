@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -84,7 +86,7 @@
 
                             $ipcon = new IPConnection(); // Create IP connection
                             try {
-                                @$ipcon->connect(HOST, PORT);
+                                @$ipcon->connect($_SESSION['ip'], $_SESSION['port']);
                             } catch (AlreadyConnectedException|Exception $e) {
                             }
 
@@ -162,7 +164,3 @@
 </script>
 </body>
 </html>
-
-<!--Aufgaben-->
-
-<!--Automatische Mail bei kritischen Ereignissen erstellen-->
