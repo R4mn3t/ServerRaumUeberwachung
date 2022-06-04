@@ -66,28 +66,88 @@
         <div class="boxes">
             <div class="overview box">
                 <div class="title">Overview</div>
-                <br>
-                <div class="box">
-                    <div class="right-side">
-                        <div class="box-topic">Humidity: </div>
-                        <div class="number"><?php if (!empty($_SESSION['humidity'])) {echo $_SESSION['humidity'];} ?></div>
-                    </div>
-                </div>
-                <br>
-                <div class="box">
-                    <div class="right-side">
-                        <div class="box-topic">Temperature: </div>
-                        <div class="number"><?php if (!empty($_SESSION['temperature'])) {echo $_SESSION['temperature'];} ?></div>
-                    </div>
-                </div>
-                <br>
-                <div class="box">
-                    <div class="right-side">
-                        <div class="box-topic">Brightness: </div>
-                        <div class="number"><?php if (!empty($_SESSION['illuminance'])) {echo $_SESSION['illuminance'];} ?></div>
-                    </div>
-                </div>
+                <table>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td>
+                            <div>Connection State:</div>
+                        </td>
+                        <td>
+                            <?php
+                            include_once("./Tinkerforge/IPConnection.php");
+                            include_once("./ipPort.php");
 
+                            use Tinkerforge\IPConnection;
+
+                            $ipcon = new IPConnection(); // Create IP connection
+                            try {
+                                @$ipcon->connect(HOST, PORT);
+                            } catch (\Tinkerforge\AlreadyConnectedException|Exception $e) {
+                            }
+
+                            if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
+                                echo "Connected.";
+                            } else {
+                                echo "Not Connected.";
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <div class="box">
+                            <div class="right-side">
+                                <td>
+                                    <div class="box-topic">Humidity:</div>
+                                </td>
+
+                                <td>
+                                    <div class="number"><?php if (!empty($_SESSION['humidity'])) {
+                                            echo $_SESSION['humidity'];
+                                        } ?></div>
+                                </td>
+                            </div>
+                        </div>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <div class="box">
+                            <div class="right-side">
+                                <td>
+                                    <div class="box-topic">Temperature:</div>
+                                </td>
+                                <td>
+                                    <div class="number"><?php if (!empty($_SESSION['temperature'])) {
+                                            echo $_SESSION['temperature'];
+                                        } ?></div>
+                                </td>
+                            </div>
+                        </div>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <div class="box">
+                            <div class="right-side">
+                                <td>
+                                    <div class="box-topic">Brightness:</div>
+                                </td>
+                                <td>
+                                    <div class="number"><?php if (!empty($_SESSION['illuminance'])) {
+                                            echo $_SESSION['illuminance'];
+                                        } ?></div>
+                                </td>
+                            </div>
+                        </div>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -103,5 +163,5 @@
 </html>
 
 <!--Aufgaben-->
-<!--Index anpassen-->
+
 <!--Automatische Mail bei kritischen Ereignissen erstellen-->
