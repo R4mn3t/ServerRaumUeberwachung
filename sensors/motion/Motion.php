@@ -15,6 +15,7 @@ const UID = 'ML4'; // Change XYZ to the UID of your Motion Detector Bricklet 2.0
 // Callback function for motion detected callback
 function cb_motionDetected(): void
 {
+    $_SESSION['motion'] = true;
     echo "Motion Detected\n";
 }
 

@@ -51,6 +51,7 @@ if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
 }
 // Don't use device before ipcon is connected
 
+//Set upload directory
 $dir = "uploads/";
 $fileName = $dir . basename($_FILES['paper-image']['name']);
 $uploadCheck = null;

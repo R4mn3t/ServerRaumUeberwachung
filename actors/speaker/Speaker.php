@@ -29,7 +29,7 @@ if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
 // Don't use device before ipcon is connected
 
 // 10 seconds of loud annoying fast alarm
-if (!is_null($ps)) {
+if (!is_null($ps) && ($_SESSION['tempCheck'] === true ||$_SESSION['humCheck'] === true)) {
     $ps->setAlarm(800, 2000, 10, 1, $_SESSION['volume'], 10000);
 } else {
     echo "Device not connected!";

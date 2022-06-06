@@ -15,10 +15,10 @@ const UID = 'XBe'; // Change XYZ to the UID of your RGB LED Button Bricklet
 function cb_buttonStateChanged($state): void
 {
     if ($state == BrickletRGBLEDButton::BUTTON_STATE_PRESSED) {
-        $_SESSION['buttonState'] = true;
+        $_SESSION['buttonState'] = 'pressed';
         echo "State: Pressed\n";
     } elseif ($state == BrickletRGBLEDButton::BUTTON_STATE_RELEASED) {
-        $_SESSION['buttonState'] = false;
+        $_SESSION['buttonState'] = 'released';
         echo "State: Released\n";
     }
 }
