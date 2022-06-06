@@ -345,9 +345,3 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: $mail->ErrorInfo";
 }
-
-
-
-//Aufgaben
-//Bricklets zusammenarbeiten lassen
-//Automatische Mail bei kritischen Ereignissen erstellen
