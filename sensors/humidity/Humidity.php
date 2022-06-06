@@ -32,7 +32,7 @@ if ($ipcon->getConnectionState() === IPConnection::ENUMERATION_TYPE_CONNECTED) {
 // Get current humidity
 if (!is_null($h)) {
     $humidity = $h->getHumidity();
-    $_SESSION['humidity'] = $humidity / 100.0 . " %RH\n";
+    $_SESSION['humidity'] = $humidity / 100.0;
     echo "Humidity: " . $humidity / 100.0 . " %RH\n";
 }
 

@@ -110,7 +110,7 @@
 
                                 <td>
                                     <div class="number"><?php if (!empty($_SESSION['humidity'])) {
-                                            echo $_SESSION['humidity'];
+                                            echo $_SESSION['humidity'] . " %RH";
                                         } ?></div>
                                 </td>
                             </div>
@@ -127,7 +127,7 @@
                                 </td>
                                 <td>
                                     <div class="number"><?php if (!empty($_SESSION['temperature'])) {
-                                            echo $_SESSION['temperature'];
+                                            echo $_SESSION['temperature'] . "°C";
                                         } ?></div>
                                 </td>
                             </div>
@@ -144,7 +144,7 @@
                                 </td>
                                 <td>
                                     <div class="number"><?php if (!empty($_SESSION['illuminance'])) {
-                                            echo $_SESSION['illuminance'];
+                                            echo $_SESSION['illuminance'] . " lx";
                                         } ?></div>
                                 </td>
                             </div>
